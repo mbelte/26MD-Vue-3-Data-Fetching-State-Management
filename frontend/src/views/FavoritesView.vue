@@ -1,4 +1,7 @@
 <template>
+  <h1 class="text-center font-bold text-2xl py-4">
+    List of favorite jokes
+  </h1>
   <JokesList
     :jokes="jokes"
     :label="'Remove from favorites'"
@@ -11,6 +14,7 @@
   import axios from 'axios';
 
   export type FetchJoke = {
+    id?: number;
     _id: string;
     apiId: number;
     joke: string;
@@ -40,8 +44,13 @@
       },
 
       removeFavorite(joke: FetchJoke) {
-        const { _id } = joke
-        axios.delete('http://localhost:3004/joke/' + _id, )
+        axios
+          .delete('http://localhost:3004/joke/' + joke._id, )
+          .then(({ data }) => {
+            if (data === 'success') {
+              this.fetchJokes()
+            }
+          })
       }
     }
   }

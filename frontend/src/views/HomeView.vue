@@ -1,6 +1,6 @@
 <template>
   <h1 class="text-center font-bold text-2xl py-4">
-    List of programming jokes
+    List of random jokes
   </h1>
   <JokesList
     :jokes="jokes"
@@ -35,6 +35,7 @@
     flags: FetchFlagsType[];
     safe: boolean;
     id: number;
+    _id?: string;
     lang: string;
   }
 

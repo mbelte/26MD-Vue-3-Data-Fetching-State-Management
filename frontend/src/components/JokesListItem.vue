@@ -17,7 +17,7 @@
   export default {
     props: {
       joke: {
-        type: Object as PropType<FetchJokeType | FetchJoke[]>,
+        type: Object as PropType<FetchJokeType | FetchJoke>,
         required: true
       },
       label: {
@@ -30,6 +30,7 @@
       return {
         favoriteJoke: {
           apiId: this.joke.id,
+          _id: this.joke._id,
           joke: this.joke.joke,
           category: this.joke.category
         }

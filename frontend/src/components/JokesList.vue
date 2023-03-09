@@ -10,6 +10,7 @@
         :label="label"
         @joke="onClick"
       />
+      <h4 v-if="!jokes.length">There are no favorites.</h4>
   </div>
 </template>
 

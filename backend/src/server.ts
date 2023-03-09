@@ -45,7 +45,7 @@ app.get("/joke", (req: Request, res: Response) => {
     .catch((err) => res.send(err));
 });
 
-app.delete("/jokes/:id", (req: Request, res: Response) => {
+app.delete("/joke/:id", (req: Request, res: Response) => {
   const { id } = req.params;
   Jokes
     .deleteOne({ _id: id })
