@@ -1,6 +1,11 @@
 <template>
+  <h1 class="text-center font-bold text-2xl py-4">
+    List of programming jokes
+  </h1>
   <JokesList
     :jokes="jokes"
+    :label="'Add to favorites'"
+    @joke="submitFavorite"
   />
 </template>
 
@@ -62,9 +67,7 @@
       },
 
       submitFavorite(joke: JokeSubmitType) {
-        axios
-          .post('http://localhost:3004/joke', joke)
-          .then(({ status }) => status === 200)
+        axios.post('http://localhost:3004/joke', joke)
       }
     }
   }
